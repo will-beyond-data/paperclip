@@ -1,0 +1,46 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directories:
+      - "/"
+      - "/cli"
+      - "/server"
+      - "/ui"
+      - "/packages/*"
+      - "/packages/adapters/*"
+      - "/packages/plugins/*"
+      - "/packages/plugins/examples/*"
+      - "/packages/plugins/sandbox-providers/*"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      minor-and-patch:
+        update-types: [minor, patch]
+      major:
+        update-types: [major]
+
+  - package-ecosystem: docker
+    directories:
+      - "/"
+      - "/docker/untrusted-review"
+      - "/docker/openclaw-smoke"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      minor-and-patch:
+        update-types: [minor, patch]
+      major:
+        update-types: [major]
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      minor-and-patch:
+        update-types: [minor, patch]
+      major:
+        update-types: [major]
